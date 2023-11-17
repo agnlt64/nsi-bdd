@@ -42,7 +42,7 @@ Cette commande va télécherger le repo `git` sur votre ordinateur.
 Avant toute modification, vérifiez bien que vous avez la dernière version du code : 
 ```console
 git fetch
-git pull
+git pull origin master
 ```
 Ces commandes sont à utiliser à chaque fois que du code est envoyé sur le repo.
 
