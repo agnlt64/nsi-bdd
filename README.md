@@ -50,3 +50,10 @@ Pensez bien à changer de branche avant de modifier quoi que ce soit :
 ```console
 git checkout <votre nom>
 ```
+
+Pour envoyer du code sur le repo :
+```console
+git add -A
+git commit -m "um message qui explique ce que vous avez fait"
+git push origin <votre nom>
+```
