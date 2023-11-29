@@ -1,13 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Titre de la page
-{% endblock %}
-
 {% block content %}
-<h1>Hello world</h1>
-{% endblock %}
+	<p>Bienvenue sur le site officiel du Judat Bricot Lycée ! Nous sommes ravis de vous présenter les dernières
+		informations concernant notre événement annuel très attendu : le Cross du Lycée.</p>
+	<figure>
+		<img class="photo1" src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="CrossDuLycée" height="200px" width="300px"
+			style="float: right; margin-left: 20px;">
+		<figcaption>Élèves en pleine action lors du Cross du Lycée</figcaption>
+	</figure>
+	<p>Cet événement sportif rassemble nos élèves dans une compétition saine et amusante, renforçant l'esprit
+		d'équipe et promouvant un mode de vie actif. Chaque année, nos étudiants se lancent dans une course
+		passionnante pour la victoire, démontrant leur détermination et leur endurance.</p>
 
-{% block scripts %}
-<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+	<p>Les résultats du Cross, les podiums et les classements seront mis à jour régulièrement sur ce site, alors
+		assurez-vous de rester connectés pour suivre les performances exceptionnelles de nos participants. En plus
+		de l'aspect compétitif, le Cross du Lycée est également l'occasion de célébrer l'unité et l'inclusion au
+		sein de notre communauté éducative.</p>
+
+
+	<figure>
+		<img class="photo2" src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="CrossDuLycée" height="200px" width="300px"
+			style="float: right; margin-left: 20px;">
+		<figcaption>Une vue panoramique du lieu du Cross du Lycée</figcaption>
+	</figure>
+	<p>Par ailleurs, nous sommes ravis de vous annoncer que cette année, le Cross du Lycée sera accompagné de
+		diverses activités culturelles et artistiques. Nous avons préparé des stands de nourriture, des expositions
+		artistiques et des performances musicales pour enrichir cette journée inoubliable.</p>
+
+	<p>Explorez les différentes sections de notre site pour plus d'informations, et n'oubliez pas de suivre nos
+		réseaux sociaux (Instagram, Twitter, Facebook) pour des mises à jour en temps réel. Nous sommes impatients
+		de partager cette expérience mémorable avec vous et de voir nos élèves briller sur le terrain du Cross du
+		Lycée !</p>
+
+	<p>N'attendez plus, marquez la date sur votre calendrier et préparez-vous à vivre une journée pleine d'énergie,
+		de compétition et de divertissement au Judat Bricot Lycée !</p>
+
 {% endblock %}

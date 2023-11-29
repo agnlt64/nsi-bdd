@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #EBE3F5;
+    padding: 0;
+}
+
+p {
+    margin-left: 60px;
+
+}
+
+h2 {
+    font-size: 15px;
+
+}
+
+header {
+    background-color: #565BEA;
+    color: #FEFEFF;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height:100px
+}
+
+.banner {
+    margin: 0;
+}
+
+#toggleMenu {
+    background-color: #7C80FC;
+    color: #FEFEFF;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 25px;
+    left: 0;
+    border-radius: 0% 20% 20% 0%;
+
+}
+
+#toggleMenu img {
+    width: 50px;
+    aspect-ratio: 1;
+}
+
+#sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #7C80FC;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.test1 ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.test1 ul li {
+
+    text-align: center;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.test1 a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #FEFEFF;
+    display: block;
+    transition: 0.3s;
+    margin-left: 50px;
+    margin-top: 50px;
+
+}
+
+#sidebar-bottom {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    /*space-around space-between*/
+    align-items: center;
+}
+
+#sidebar-bottom a {
+    display: block;
+    transition: 0.3s;
+
+    margin-bottom: 70px;
+
+}
+
+#sidebar-bottom ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#sidebar-bottom li {
+    display: inline-block;
+    margin: 0 0px;
+    
+}
+
+main {
+    margin-top: 130px;
+    padding: 20px;
+}
+
+#maison {
+    background-color: #7C80FC;
+}
+
+.socialmedia {
+    width: 50px;
+    aspect-ratio: 1;
+}
+
+.myInput {
+    text-align: center;
+}
+
+.barre {
+    text-align: center;
+    margin: 0 auto; 
+    width: 50%;
+    margin-top: 130px;
+    padding: 20px;
+
+}
+
+input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+}
+
+thead {
+    text-align: center;
+    margin: 0 auto;
+
+
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+	border-bottom: 1px solid #FEFEFF;
+}
+
+.mytable {
+    margin: 0 auto;
+    text-align: left; 
+    border-collapse: collapse;
+}
+
