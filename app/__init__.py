@@ -9,6 +9,8 @@ def create_app() -> Flask:
     app.secret_key = secrets.token_urlsafe(40)
 
     from .views import views
+    from .api import api
     app.register_blueprint(views)
+    app.register_blueprint(api)
 
     return app
