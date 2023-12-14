@@ -1,0 +1,4 @@
+Question 4 :
+1) SELECT ELEVE.nom , ELEVE.prenom , DOSSARD.temps FROM ELEVE
+INNER JOIN DOSSARD ON ELEVE.id_eleve = DOSSARD.id_eleve
+WHERE id_dossard = ...
