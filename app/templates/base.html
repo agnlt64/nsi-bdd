@@ -9,10 +9,21 @@
 </head>
 <body>
     <header>
-		<div class="banner">
+		<div class="carousel">
+			<div class="slide" id="slide1">
+				<img src="{{ url_for('static', filename='media/image1.jpg') }}" alt="">
+			</div>
+			<div class="slide" id="slide2">
+				<img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="">
+			</div>
+			<div class="slide" id="slide3">
+				<img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="">
+			</div>
+		</div>
+		<!-- <div class="banner">
 			<h1>Lycée Judat Bricot</h1>
 			<h2>Accueil</h2>
-		</div>
+		</div> -->
 	</header>
 	<nav id="sidebar" class="sidebar-open">
 		<button id="toggleMenu" onclick="toggleSidebar()"><img src="{{ url_for('static', filename='media/home.png') }}" id="maison" alt="Home"></button>

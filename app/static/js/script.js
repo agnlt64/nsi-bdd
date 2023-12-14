@@ -29,3 +29,14 @@ function filterTable() {
 	}
 }
 
+const slides = ['slide1', 'slide2', 'slide3']
+for (let i = 0; i < slides.length; i++) {
+	const slide = document.getElementById(slides[i])
+	slide.animate({
+		translate: `${10 + i*10}%`
+	}, {
+		duration: 2000,
+		delay: i+1*1000,
+		iterations: Infinity
+	})
+}

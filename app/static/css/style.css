@@ -1,3 +1,7 @@
+:root {
+    --header-size: 300px
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -18,12 +22,11 @@ h2 {
 header {
     background-color: #565BEA;
     color: #FEFEFF;
-    padding: 10px;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
-    height:100px
+    height:var(--header-size);
 }
 
 .banner {
@@ -55,7 +58,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #7C80FC;
+    background: linear-gradient(#407FFF,#997BDE 80%);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -117,7 +120,7 @@ header {
 }
 
 main {
-    margin-top: 130px;
+    margin-top: 280px;
     padding: 20px;
 }
 
@@ -171,3 +174,14 @@ th, td {
     border-collapse: collapse;
 }
 
+.carousel {
+    display: flex;
+    height: var(--header-size);
+    /* width: 300%; 100% * nombre d'images */
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+}
