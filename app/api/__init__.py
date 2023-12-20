@@ -1,6 +1,10 @@
 from flask import Blueprint
+import sqlite3
 
 api = Blueprint('api', __name__, url_prefix='/api')
+
+conn = sqlite3.connect("cross.db")
+cursor=conn.cursor()
 
 @api.route('/search')
 def search():
@@ -13,3 +17,4 @@ def search():
         'categorie': '',
         'sexe': ''
     }
+

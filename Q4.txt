@@ -2,3 +2,16 @@ Question 4 :
 1) SELECT ELEVE.nom , ELEVE.prenom , DOSSARD.temps FROM ELEVE
 INNER JOIN DOSSARD ON ELEVE.id_eleve = DOSSARD.id_eleve
 WHERE id_dossard = ...
+
+2) SELECT nom, prenom, temps FROM DOSSARD
+INNER JOIN ELEVE ON DOSSARD.id_dossard = ELEVE.id_eleve
+WHERE id_catégorie = ...
+ORDER BY temps ASC
+
+3) requete="""SELECT nom, prenom, temps FROM DOSSARD
+INNER JOIN ELEVE ON DOSSARD.id_dossard = ELEVE.id_eleve
+WHERE id_catégorie = 3
+ORDER BY temps ASC"""
+cursor.execute(requete)
+rows = cursor.fetchall()
+print(rows[:3])
