@@ -10,24 +10,24 @@ function toggleSidebar() {
     }
 }
 
-function filterTable() {
-	var input, filter, table, tr, td, i, txtValue;
-	input = document.getElementById("myInput");
-	filter = input.value.toUpperCase();
-	table = document.getElementById("myTable");
-	tr = table.getElementsByTagName("tr");
-	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[1];
-		if (td) {
-			txtValue = td.textContent || td.innerText;
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				tr[i].style.display = "";
-			} else {
-				tr[i].style.display = "none";
-			}
-		}
-	}
-}
+// function filterTable() {
+// 	var input, filter, table, tr, td, i, txtValue;
+// 	input = document.getElementById("myInput");
+// 	filter = input.value.toUpperCase();
+// 	table = document.getElementById("myTable");
+// 	tr = table.getElementsByTagName("tr");
+// 	for (i = 0; i < tr.length; i++) {
+// 		td = tr[i].getElementsByTagName("td")[1];
+// 		if (td) {
+// 			txtValue = td.textContent || td.innerText;
+// 			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+// 				tr[i].style.display = "";
+// 			} else {
+// 				tr[i].style.display = "none";
+// 			}
+// 		}
+// 	}
+// }
 
 const slides = ['slide1', 'slide2', 'slide3']
 for (let i = 0; i < slides.length; i++) {
@@ -42,5 +42,23 @@ for (let i = 0; i < slides.length; i++) {
 }
 
 
+function rechercher() {
+	const categoriesSlider = document.getElementById('categories')
+	const dossard = document.getElementById('dossard')
+	const rechercher = document.getElementById('rechercher')
+	const erreur = document.getElementById('erreur')
 
 
+	rechercher.addEventListener('click', () => {
+		if (Number(dossard.value) < 0) {
+			erreur.innerHTML = 'Le dossard ne peut pas être négatif!'
+		} else {
+			const rechercherURL = `/api/rechercher/eleve?dossard=${dossard.value}`
+			fetch(rechercherURL)
+			.then(res => console.log(res))
+			.then(data => console.log(data))
+		}
+	})
+}
+
+rechercher()

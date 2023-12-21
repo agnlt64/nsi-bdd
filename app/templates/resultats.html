@@ -1,71 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<main class="barre">
-		<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Rechercher un élève (nom)">
-		<table id="myTable">
-			<thead>
-				<tr>
-					<td>
-						<h2>Numéro de dossard</h2>
-					</td>
-					<td>
-						<h2>Nom</h2>
-					</td>
-					<td>
-						<h2>Prénom</h2>
-					</td>
-					<td>
-						<h2>Classe</h2>
-					</td>
-					<td>
-						<h2>Date de naissance</h2>
-					</td>
-					<td>
-						<h2>Catégorie</h2>
-					</td>
-					<td>
-						<h2>Sexe</h2>
-					</td>
-				</tr>
-				<tr>
-					<td>001</td>
-					<td>Smith</td>
-					<td>Kevin</td>
-					<td>Premiere5</td>
-					<td>15 mars 2007</td>
-					<td>Benjamin</td>
-					<td>Garçon</td>
-				</tr>
-				<tr>
-					<td>002</td>
-					<td>Adams</td>
-					<td>Gilbert</td>
-					<td>Terminale3</td>
-					<td>17 janvier 2006</td>
-					<td>Cadet</td>
-					<td>Garçon</td>
-				</tr>
-				<tr>
-				<tr>
-					<td>003</td>
-					<td>Johnson</td>
-					<td>Boris</td>
-					<td>Seconde9</td>
-					<td>24 octobre 2008</td>
-					<td>Benjamin</td>
-					<td>Garçon</td>
-				</tr>
-				<tr>
-					<td>004</td>
-					<td>Octave</td>
-					<td>Auguste</td>
-					<td>Premiere1</td>
-					<td>18 decembre 2007</td>
-					<td>Cadet</td>
-					<td>Garçon</td>
-				</tr>
-			</thead>
-		</table>
-	</main>
+	<section class="resultats">
+		<div class="options">
+			<select name="categories" id="categories">
+				<option value="Minime">Minime</option>
+				<option value="Cadet">Cadet</option>
+				<option value="Junior">Junior</option>
+				<option value="Benjamin">Benjamin</option>
+			</select>
+	
+			<input type="number" id="dossard" placeholder="Numéro de dossard" min="0">
+	
+			<button id="rechercher">Rechercher</button>
+		</div>
+
+		<div class="erreur" id="erreur"></div>
+	</section>
 {% endblock %}
