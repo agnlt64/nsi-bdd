@@ -11,7 +11,7 @@ def search_eleve():
     dossard = request.args.get('dossard')
     rows = ''
     if dossard is None:
-        print('pas de dossard')
+        return {}
     else:
         requete_sql = f"""
 SELECT ELEVE.nom , ELEVE.prenom , DOSSARD.temps FROM ELEVE
@@ -20,17 +20,19 @@ WHERE id_dossard = {dossard}
 """
         cursor.execute(requete_sql)
         conn.commit()
-        rows = cursor.fetchall()
-        assert len(rows) == 1, "Erreur: le numéro de dossard n'est pas unique"
-        rows = rows[0]
-    return rows
+        rows = cursor.fetchone()
+    return {
+        "nom_famille" : rows[0],
+        "prenom" : rows[1],
+        "temps" : rows[2]
+    }
 
 @api.route('/categorie')
 def search_categorie():
     id = request.args.get('id')
     rows = ''
     if id is None:
-        print('pas de categorie')
+        return {}
     else:
         requete_sql = f"""
 SELECT nom, prenom, temps FROM DOSSARD
@@ -48,7 +50,7 @@ def search_podium():
     id = request.args.get('id')
     rows = ''
     if id is None:
-        print('pas de podium de categorie')
+        return {}
     else:
         requete_sql = f"""
 SELECT nom, prenom, temps FROM DOSSARD
