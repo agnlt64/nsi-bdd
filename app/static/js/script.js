@@ -1,13 +1,13 @@
 function toggleSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    var test3 = document.getElementById('border-right');
-    if (sidebar.style.width === '250px') {
-        sidebar.style.width = '0';
-        test3.style.width = '75px';
-    } else {
-        sidebar.style.width = '250px';
-        test3.style.width = '0px'
-    }
+	var sidebar = document.getElementById('sidebar');
+	var test3 = document.getElementById('border-right');
+	if (sidebar.style.width === '250px') {
+		sidebar.style.width = '0';
+		test3.style.width = '75px';
+	} else {
+		sidebar.style.width = '250px';
+		test3.style.width = '0px'
+	}
 }
 
 // function filterTable() {
@@ -29,36 +29,63 @@ function toggleSidebar() {
 // 	}
 // }
 
-const slides = ['slide1', 'slide2', 'slide3']
-for (let i = 0; i < slides.length; i++) {
-	const slide = document.getElementById(slides[i])
-	slide.animate({
-		translate: `${10 + i*10}%`
-	}, {
-		duration: 2000,
-		delay: i+1*1000,
-		iterations: Infinity
-	})
-}
-
 
 function rechercher() {
-	const categoriesSlider = document.getElementById('categories')
-	const dossard = document.getElementById('dossard')
+	const filtres = document.getElementById("filtres")
+	const categorie = document.getElementById("categorie")
+	const rechercheDossards = document.getElementById("recherche-dossards")
+	const onChange = () => {
+		if (filtres.value === "categorie") {
+			categorie.classList.remove('invisible')
+			rechercheDossards.classList.add("invisible")
+		}
+		else if (filtres.value === "Ndossard") {
+			rechercheDossards.classList.remove('invisible')
+			categorie.classList.add("invisible")
+		}
+	}
+
+	onChange()
+	filtres.addEventListener("change", onChange)
+
 	const rechercher = document.getElementById('rechercher')
-	const erreur = document.getElementById('erreur')
-
-
-	rechercher.addEventListener('click', () => {
-		if (Number(dossard.value) < 0) {
-			erreur.innerHTML = 'Le dossard ne peut pas être négatif!'
-		} else {
-			const rechercherURL = `/api/rechercher/eleve?dossard=${dossard.value}`
-			fetch(rechercherURL)
-			.then(res => console.log(res))
-			.then(data => console.log(data))
+	rechercher.addEventListener("click", () => {
+		if (filtres.value === "categorie") {
+			const categories = document.getElementById("categorie").value
+			let categorieId = null
+			switch (categories) {
+				case "minime":
+					categorieId = 1
+					break
+				case "cadet":
+					categorieId = 2
+					break
+				case "junior":
+					categorieId = 3
+					break
+				case "benjamin":
+					categorieId = 4
+					break
+				default: break
+			}
+			fetch(`/api/rechercher/categorie?id=${categorieId}`)
+				.then(res => res.json())
+				.then(data => {
+					for (let i = 0; i < data.length; i++) {
+						console.log(data[i])
+					}
+				})
+		}
+		else if (filtres.value === "Ndossard") {
+			const dossard = Number(document.getElementById("dossard").value)
+			fetch(`/api/rechercher/eleve?dossard=${dossard}`)
+				.then(res => res.json())
+				.then(data => {
+					console.log(data)
+				})
 		}
 	})
+
 }
 
 rechercher()

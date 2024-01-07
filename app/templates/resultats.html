@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<section class="resultats">
-		<div class="options">
-			<select name="categories" id="categories">
-				<option value="Minime">Minime</option>
-				<option value="Cadet">Cadet</option>
-				<option value="Junior">Junior</option>
-				<option value="Benjamin">Benjamin</option>
-			</select>
-	
-			<input type="number" id="dossard" placeholder="Numéro de dossard" min="0">
-	
-			<button id="rechercher">Rechercher</button>
-		</div>
 
-		<div class="erreur" id="erreur"></div>
-	</section>
+    <section class="resultats">
+        <h2>Veuillez sélectionner un filtre</h2>
+        <select name="filtres" id="filtres">
+            <option value="categorie">Catégorie</option>
+            <option value="Ndossard">Numéro de Dossard</option>
+        </select>
+        <select name="categorie" id="categorie" class="invisible">
+            <option value="minime">Minime</option>
+            <option value="cadet">Cadet</option>
+            <option value="junior">Junior</option>
+            <option value="benjamin">Benjamin</option>
+        </select>
+
+        <div class="invisible" id="recherche-dossards">
+            <input type="number" id="dossard" placeholder="Numéro de dossard" min="0">
+            <div class="erreur" id="erreur"></div>
+        </div>
+        <button id="rechercher">Rechercher</button>
+        <table>
+
+        </table>
+    </section>
 {% endblock %}

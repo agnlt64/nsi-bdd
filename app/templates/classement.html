@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<form>
-		<!-- Boutons de catégories -->
-		<label>
-			<button type="button" class="categoryButton" data-category="action">Fille</button>
-		</label>
-		<label>
-			<button type="button" class="categoryButton" data-category="action">Garçon</button>
-		</label>
-		<label>
-			<button type="button" class="categoryButton" data-category="action">Benjamin</button>
-		</label>
-		<label>
-			<button type="button" class="categoryButton" data-category="action">Cadet</button>
-		</label>
-		<label>
-			<button type="button" class="categoryButton" data-category="action">Fille</button>
-		</label>
-	</form>
-	<section id="games">
-		<!-- Ici, nous allons afficher la liste des jeux vidéo -->
-	</section>
-{% endblock %}
+<div class="podium">
+    <div class="position first">
+        <span class="index">1</span>
+        <div class="eleve">
+            <span class="nom">bertrand</span>
+            <span class="temps">12.40</span>
+        </div>
+    </div>
+    <div class="position second">
+        <span class="index">2</span>
+        <div class="eleve">
+            <span class="nom">Smith</span>
+            <span class="temps">75.69</span>
+        </div>
+    </div>
+    <div class="position third">
+        <span class="index">3</span>
+        <div class="eleve">
+            <span class="nom">Simpson</span>
+            <span class="temps">48.12</span>
+        </div>
+    </div>
+</div>
+{% endblock %

@@ -4,48 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judat Bricot</title>
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-		<div class="carousel">
-			<div class="slide" id="slide1">
-				<img src="{{ url_for('static', filename='media/image1.jpg') }}" alt="">
-			</div>
-			<div class="slide" id="slide2">
-				<img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="">
-			</div>
-			<div class="slide" id="slide3">
-				<img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="">
-			</div>
-		</div>
-		<!-- <div class="banner">
-			<h1>Lycée Judat Bricot</h1>
-			<h2>Accueil</h2>
-		</div> -->
-	</header>
-	<nav id="sidebar" class="sidebar-open">
-		<button id="toggleMenu" onclick="toggleSidebar()"><img src="{{ url_for('static', filename='media/home.png') }}" id="maison" alt="Home"></button>
-		<div class="test1">
-			<ul>
-				<li class="slide"><a href="/">Accueil</a></li>
-				<li class="slide"><a href="/resultats">Résultats de Cross</a></li>
-				<li class="slide"><a href="/classement">Podium & Classement</a></li>
-				<li class="slide"><a href="/">Autres informations</a></li>
-			</ul>
-		</div>
-		<ul id="sidebar-bottom">
-			<li><a href="#"><i class='bx bxl-instagram-alt' class='socialmedia'></i></a></li>
-			<li><a href="#"><i class='bx bxl-twitter' class='socialmedia'></i></a></li>
-			<li><a href="#"><i class='bx bxl-facebook-circle' class='socialmedia'></i></a></li>
-		</ul>
-	</nav>
+        <div class="banner">
+            <h1>Lycée Judat Bricot</h1>
+        </div>
+    </header>
+    <nav id="sidebar" class="sidebar-open">
+        <button id="toggleMenu" onclick="toggleSidebar()"><img src="{{ url_for('static', filename='media/home.png') }}" id="maison" alt="Home"></button>
+        <div class="test1">
+            <ul>
+                <li class="slide"><a href="/">Accueil</a></li>
+                <li class="slide"><a href="/resultats">Résultats de Cross</a></li>
+                <li class="slide"><a href="/classement">Podium & Classement</a></li>
+                <li class="slide"><a href="/">Autres informations</a></li>
+            </ul>
+        </div>
+        <ul id="sidebar-bottom">
+            <li><a href="#"><i class='bx bxl-instagram-alt' class='socialmedia'></i></a></li>
+            <li><a href="#"><i class='bx bxl-twitter' class='socialmedia'></i></a></li>
+            <li><a href="#"><i class='bx bxl-facebook-circle' class='socialmedia'></i></a></li>
+        </ul>
+    </nav>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-    
+
 </body>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% block scripts %}
