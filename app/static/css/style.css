@@ -22,22 +22,18 @@ h2 {
 
 header {
     background-color: #565BEA;
-    color: #FEFEFF;
+    color: white;
+    text-shadow: 2px 2px 2px black;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     height: var(--header-size);
-    /* background-image: url("{{ url_for('static', filename='media/header.jpg') }}"); */
-    /* background-image: url("static/media/header.jpg"); */
-}
-
-.phototest {
-    opacity: 50%;
-    width: 100%;
-    top: 0;
-    height: var(--header-size);
-    position: relative;
+    background-image: url("/static/media/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
 }
 
 .invisible {
