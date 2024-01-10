@@ -26,11 +26,39 @@ function toggleSidebar() {
 // 	}
 // }
 
-function creerLigne(table, nomFamille, prenom,temps) {
-	const tr = table.children[1].children[0]
-	tr.innerHTML =""
-	for (i = 0; i < 3; i++) {
-		const td = document.createElement("td")
+// function creerLigne(table, nomFamille, prenom, temps, ajout = false) {
+// 	const tbody = table.children[1]
+// 	let tr = table.children[1].children[0]
+// 	if (!ajout) {
+// 		tr.innerHTML = ""
+// 	}
+// 	for (i = 0; i < 3; i++) {
+// 		if (ajout) {
+// 			tr = document.createElement('tr')
+// 		}
+// 		const td = document.createElement("td")
+// 		if(i === 0) {
+// 			td.textContent = nomFamille
+// 		}
+// 		if(i === 1) {
+// 			td.textContent = prenom
+// 		}
+// 		if(i === 2) {
+// 			td.textContent = temps
+// 		}
+// 		tr.appendChild(td)
+// 		//tbody.appendChild(tr)
+// 	}
+// }
+
+function creerLigne(table, nomFamille, prenom, temps, supprimerPrecedent = false) {
+	const tbody = table.children[1]
+	if (supprimerPrecedent) {
+		tbody.innerHTML = ""
+	}
+	const tr = document.createElement('tr')
+	for (let i = 0; i < 3; i++) {
+		const td = document.createElement('td')
 		if(i === 0) {
 			td.textContent = nomFamille
 		}
@@ -41,8 +69,8 @@ function creerLigne(table, nomFamille, prenom,temps) {
 			td.textContent = temps
 		}
 		tr.appendChild(td)
-		
 	}
+	tbody.appendChild(tr)
 }
 
 function rechercher() {
@@ -92,9 +120,12 @@ function rechercher() {
 				.then(res => res.json())
 				.then(data => {
 					for (let i = 0; i < data.length; i++) {
-						console.log(data[i])
+						const nomFamille = data[i][0]
+						const prenom = data[i][1]
+						const temps = data[i][2]
+						table.classList.remove('invisible')
+						creerLigne(table, nomFamille, prenom, temps)
 					}
-				
 				})
 				filtres.value = "categorie"
 		}
@@ -109,7 +140,7 @@ function rechercher() {
 					const prenom = data.prenom
 					const temps = data.temps
 					table.classList.remove("invisible")
-					creerLigne(table, nomFamille, prenom, temps)
+					creerLigne(table, nomFamille, prenom, temps, true)
 				
 				})
 				
