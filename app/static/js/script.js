@@ -75,16 +75,16 @@ function rechercher() {
 			let categorieId = null
 			switch (categorie) {
 				case "minime":
-					categorieId = 1
-					break
-				case "cadet":
 					categorieId = 2
 					break
-				case "junior":
+				case "cadet":
 					categorieId = 3
 					break
-				case "benjamin":
+				case "junior":
 					categorieId = 4
+					break
+				case "benjamin":
+					categorieId = 1
 					break
 				default: break
 			}
