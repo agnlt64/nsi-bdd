@@ -27,7 +27,17 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    height:var(--header-size);
+    height: var(--header-size);
+    /* background-image: url("{{ url_for('static', filename='media/header.jpg') }}"); */
+    /* background-image: url("static/media/header.jpg"); */
+}
+
+.phototest {
+    opacity: 50%;
+    width: 100%;
+    top: 0;
+    height: var(--header-size);
+    position: relative;
 }
 
 .invisible {
@@ -327,4 +337,99 @@ th, td {
     .podium .eleve .nom {
         font-size: 2rem;
     }
+}
+
+#rechercher {
+    background-color: #4a5897;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#rechercher:hover {
+    background-color: #25388b;
+}
+
+.table-resultats {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table-resultats th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-resultats td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-resultats tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-resultats td:first-child {
+    font-weight: bold;
+}
+
+.table-resultats.visible {
+    visibility: visible;
+}
+
+#filtres {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    cursor: pointer;
+}
+
+#filtres:hover {
+    border-color: #888;
+}
+
+#filtres:focus {
+    outline: none;
+    border-color: #4a5897;
+    box-shadow: 0 0 5px #4a5897;
+}
+
+#filtres option {
+    padding: 8px;
+}
+
+#filtres:active,
+#filtres:focus {
+    background-color: #fff;
+}
+
+#dossard {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 183px;
+    margin-right: 10px;
+}
+
+.erreur {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#categorie select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
 }
