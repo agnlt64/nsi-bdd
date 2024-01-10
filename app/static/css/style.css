@@ -16,7 +16,7 @@ p {
 }
 
 h2 {
-    font-size: 15px;
+    font-size: 30px;
 
 }
 
@@ -67,6 +67,7 @@ header {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    z-index:999;
 }
 
 .slide {
@@ -155,7 +156,7 @@ header {
 }
 
 main {
-    margin-top: 280px;
+    margin-top: 120px;
     padding: 20px;
 }
 
@@ -213,7 +214,7 @@ th, td {
     display: flex;
     justify-content: center;
     align-items: end;
-    margin-top: 2rem;
+    margin-top: 4rem;
     font-family:"Dela Gothic One", cursive;
 }
 

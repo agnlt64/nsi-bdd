@@ -1,12 +1,9 @@
 function toggleSidebar() {
-	var sidebar = document.getElementById('sidebar');
-	var test3 = document.getElementById('border-right');
+	var sidebar = document.getElementById('sidebar')
 	if (sidebar.style.width === '250px') {
 		sidebar.style.width = '0';
-		test3.style.width = '75px';
 	} else {
 		sidebar.style.width = '250px';
-		test3.style.width = '0px'
 	}
 }
 
@@ -29,21 +26,42 @@ function toggleSidebar() {
 // 	}
 // }
 
+function creerLigne(table, nomFamille, prenom,temps) {
+	const tr = table.children[1].children[0]
+	for (i = 0; i < 3; i++) {
+		const td = document.createElement("td")
+		if(i === 0) {
+			td.textContent = nomFamille
+		}
+		if(i === 1) {
+			td.textContent = prenom
+		}
+		if(i === 2) {
+			td.textContent = temps
+		}
+		tr.appendChild(td)
+		
+	}
+
+}
 
 function rechercher() {
+	const table = document.getElementById("table-resultat")
 	const filtres = document.getElementById("filtres")
-	const categorie = document.getElementById("categorie")
+	const divCategorie = document.getElementById("categorie")
 	const rechercheDossards = document.getElementById("recherche-dossards")
 	const onChange = () => {
 		if (filtres.value === "categorie") {
-			categorie.classList.remove('invisible')
+			table.classList.add("invisible")
+			divCategorie.classList.remove('invisible')
 			rechercheDossards.classList.add("invisible")
 		}
 		else if (filtres.value === "Ndossard") {
 			rechercheDossards.classList.remove('invisible')
-			categorie.classList.add("invisible")
+			divCategorie.classList.add("invisible")
 		}
 	}
+
 
 	onChange()
 	filtres.addEventListener("change", onChange)
@@ -51,9 +69,11 @@ function rechercher() {
 	const rechercher = document.getElementById('rechercher')
 	rechercher.addEventListener("click", () => {
 		if (filtres.value === "categorie") {
-			const categories = document.getElementById("categorie").value
+			const divCategorie = document.getElementById("categorie")
+			const categorie = divCategorie.children[0].value
+			const genre = divCategorie.children[1].value
 			let categorieId = null
-			switch (categories) {
+			switch (categorie) {
 				case "minime":
 					categorieId = 1
 					break
@@ -68,21 +88,33 @@ function rechercher() {
 					break
 				default: break
 			}
-			fetch(`/api/rechercher/categorie?id=${categorieId}`)
+			fetch(`/api/rechercher/categorie?id=${categorieId}&genre=${genre}`)
 				.then(res => res.json())
 				.then(data => {
 					for (let i = 0; i < data.length; i++) {
 						console.log(data[i])
 					}
+				
 				})
+				filtres.value = "categorie"
 		}
 		else if (filtres.value === "Ndossard") {
 			const dossard = Number(document.getElementById("dossard").value)
-			fetch(`/api/rechercher/eleve?dossard=${dossard}`)
+			if(dossard !== 0){
+				filtres.value = "Ndossard"
+				fetch(`/api/rechercher/eleve?dossard=${dossard}`)
 				.then(res => res.json())
 				.then(data => {
-					console.log(data)
+					const nomFamille = data.nom_famille
+					const prenom = data.prenom
+					const temps = data.temps
+					table.classList.remove("invisible")
+					creerLigne(table, nomFamille, prenom, temps)
+				
 				})
+				
+			}
+			
 		}
 	})
 
