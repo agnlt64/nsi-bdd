@@ -6,6 +6,28 @@ api = Blueprint('api', __name__, url_prefix='/api/rechercher')
 conn = sqlite3.connect("app/api/cross.db", check_same_thread=False)
 cursor=conn.cursor()
 
+def id_from_genre(genre, id) :
+    nouveau_id = 0
+    if genre == "garcon" : 
+        if id == 1 : # Benjamins
+            nouveau_id = 1
+        if id == 2 : # Minimes
+            nouveau_id = 3
+        if id == 3 : # Cadets 
+            nouveau_id = 5
+        if id == 4 : # Juniors
+            nouveau_id = 7
+    elif genre == "fille" : # en théorie il n'y aurait pas d'autres possibilités
+        if id == 1 : # Benjamins 
+            nouveau_id = 2
+        if id == 2 : # Minimes
+            nouveau_id = 4
+        if id == 3 : # Cadets
+            nouveau_id = 6 
+        if id == 4 : # Juniors
+            nouveau_id = 8 
+    return nouveau_id
+
 @api.route('/eleve')
 def search_eleve():
     dossard = request.args.get('dossard')
@@ -30,6 +52,8 @@ WHERE id_dossard = {dossard}
 @api.route('/categorie')
 def search_categorie():
     id = request.args.get('id')
+    genre = request.args.get('genre')
+    id = id_from_genre(genre, int(id))
     rows = ''
     if id is None:
         return {}
@@ -48,6 +72,8 @@ ORDER BY temps ASC
 @api.route('/podium')
 def search_podium():
     id = request.args.get('id')
+    genre = request.args.get('genre')
+    id = id_from_genre(genre, int(id))
     rows = ''
     if id is None:
         return {}
