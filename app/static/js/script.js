@@ -28,6 +28,7 @@ function toggleSidebar() {
 
 function creerLigne(table, nomFamille, prenom,temps) {
 	const tr = table.children[1].children[0]
+	tr.innerHTML =""
 	for (i = 0; i < 3; i++) {
 		const td = document.createElement("td")
 		if(i === 0) {
@@ -42,7 +43,6 @@ function creerLigne(table, nomFamille, prenom,temps) {
 		tr.appendChild(td)
 		
 	}
-
 }
 
 function rechercher() {
