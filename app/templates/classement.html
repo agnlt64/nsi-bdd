@@ -1,27 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="filtres">
+    <select>
+        <option value="minime">Minime</option>
+        <option value="cadet">Cadet</option>
+        <option value="junior">Junior</option>
+        <option value="benjamin">Benjamin</option>
+    </select>
+    <select>
+        <option value="fille">Fille</option>
+        <option value="garcon">Garçon</option>
+    </select>
+    <select id="annees">
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+    </select>
+    <button id="bouton-podium">Valider</button>
+</div>
 <div class="podium">
     <div class="position first">
         <span class="index">1</span>
         <div class="eleve">
-            <span class="nom">bertrand</span>
-            <span class="temps">12.40</span>
+            <span class="nom" id="premier-prenom"></span>
+            <span class="temps" id="premier-temps"></span>
         </div>
     </div>
     <div class="position second">
         <span class="index">2</span>
         <div class="eleve">
-            <span class="nom">Smith</span>
-            <span class="temps">75.69</span>
+            <span class="nom" id="deuxieme-prenom"></span>
+            <span class="temps" id="deuxieme-temps"></span>
         </div>
     </div>
     <div class="position third">
         <span class="index">3</span>
         <div class="eleve">
-            <span class="nom">Simpson</span>
-            <span class="temps">48.12</span>
+            <span class="nom" id="troisieme-prenom"></span>
+            <span class="temps" id="troisieme-temps"></span>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/podium.js') }}"></script>
 {% endblock %}

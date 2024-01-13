@@ -21,31 +21,43 @@ h2 {
 }
 
 header {
-    background-color: #565BEA;
+    background-color: #ffffff;
     color: white;
     text-shadow: 2px 2px 2px black;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
-    height: var(--header-size);
-    background-image: url("/static/media/header.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.5;
-    background-position: center;
+    height: 120px;
+}
+
+.banner img {
+    opacity:0.7;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+
+}
+
+.banner h1 {
+    position: absolute;
+
+    
+}
+.banner {
+    height:100%;
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .invisible {
     display: none;
 }
 
-.banner {
-    margin: 0;
-}
-
 #toggleMenu {
-    background-color: #7C80FC;
+    background-color: #407FFF;
     color: #FEFEFF;
     border: none;
     padding: 10px;
@@ -98,7 +110,7 @@ header {
     transform: scaleX(1);
 }
 
-.test1 ul {
+.navbar-menu ul {
     padding: 2rem 0 0 0;
     margin: 0;
     width: 100%;
@@ -109,15 +121,15 @@ header {
     gap: 5rem;
 }
 
-.test1 ul li {
+.navbar-menu ul li {
     width: min-content;
 }
 
-.test1 {
+.navbar-menu {
     margin-top: 20px;
 }
 
-.test1 a {
+.navbar-menu a {
     text-decoration: none;
     font-size: 20px;
     color: #FEFEFF;
@@ -126,7 +138,7 @@ header {
     text-align: center;
 }
 
-.test1 a:hover {
+.navbar-menu a:hover {
     translate: 0 -4px;
 }
 
@@ -167,12 +179,12 @@ main {
 }
 
 #maison {
-    background-color: #7C80FC;
+    background-color: inherit;
 }
 
 .socialmedia {
     width: 50px;
-    aspect-ratio: 1;
+    color: white;
 }
 
 .myInput {
@@ -230,15 +242,16 @@ th, td {
 
 .podium .first {
     background-color: #eade28;
+    height: 8rem;
 }
 
 .podium .second {
-    height: 8rem;
+    height: 6rem;
     background-color: silver;
 }
 
 .podium .third {
-    height: 6rem;
+    height: 4rem;
     background-color: #da9c4d;
     position: relative;
 }
@@ -248,6 +261,7 @@ th, td {
     display: flex;
     flex-direction: column;
     align-items: center;
+    top:-10px;
 
 }
 
@@ -271,18 +285,18 @@ th, td {
     }
 
     .podium .first {
-        height: 20rem;
+        height: 16rem;
         translate: 7rem;
     }
 
     .podium .second {
-        height: 18rem;
+        height: 14rem;
         translate: -7rem;
     }
 
     .podium .third {
         text-align: center;
-        height: 16rem;
+        height: 12rem;
     }
 
     .podium .first .eleve {
@@ -298,7 +312,7 @@ th, td {
     }
 
     .podium .eleve .nom {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }
 
@@ -321,21 +335,24 @@ th, td {
         animation: fadeIn 1s ease-in-out;
     }
 
-    .podium .first .eleve,
     .podium .second .eleve {
-        top: -25%;
+        top: -20%;
+    }
+
+    .podium .first .eleve {
+        top: -17%;
     }
 
     .podium .third .eleve {
-        top: -28%;
+        top: -24%;
     }
 
     .podium .eleve .nom {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 }
 
-#rechercher {
+#rechercher, #bouton-podium{
     background-color: #4a5897;
     color: white;
     padding: 10px 15px;
@@ -345,7 +362,7 @@ th, td {
     cursor: pointer;
 }
 
-#rechercher:hover {
+#rechercher:hover, #bouton-podium:hover {
     background-color: #25388b;
 }
 
@@ -379,7 +396,7 @@ th, td {
     visibility: visible;
 }
 
-#filtres {
+select {
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -388,22 +405,22 @@ th, td {
     cursor: pointer;
 }
 
-#filtres:hover {
+select:hover {
     border-color: #888;
 }
 
-#filtres:focus {
+select:focus {
     outline: none;
     border-color: #4a5897;
     box-shadow: 0 0 5px #4a5897;
 }
 
-#filtres option {
+select option {
     padding: 8px;
 }
 
-#filtres:active,
-#filtres:focus {
+select:active,
+select:focus {
     background-color: #fff;
 }
 
@@ -412,8 +429,7 @@ th, td {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 183px;
-    margin-right: 10px;
+    margin-top:4px;
 }
 
 .erreur {
@@ -427,5 +443,21 @@ th, td {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
+
+.filtres-container {
+    display:flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.resultats h2 {
+    text-align: center;
+}
+
+
+
+

@@ -1,55 +1,4 @@
-function toggleSidebar() {
-	var sidebar = document.getElementById('sidebar')
-	if (sidebar.style.width === '250px') {
-		sidebar.style.width = '0';
-	} else {
-		sidebar.style.width = '250px';
-	}
-}
 
-// function filterTable() {
-// 	var input, filter, table, tr, td, i, txtValue;
-// 	input = document.getElementById("myInput");
-// 	filter = input.value.toUpperCase();
-// 	table = document.getElementById("myTable");
-// 	tr = table.getElementsByTagName("tr");
-// 	for (i = 0; i < tr.length; i++) {
-// 		td = tr[i].getElementsByTagName("td")[1];
-// 		if (td) {
-// 			txtValue = td.textContent || td.innerText;
-// 			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-// 				tr[i].style.display = "";
-// 			} else {
-// 				tr[i].style.display = "none";
-// 			}
-// 		}
-// 	}
-// }
-
-// function creerLigne(table, nomFamille, prenom, temps, ajout = false) {
-// 	const tbody = table.children[1]
-// 	let tr = table.children[1].children[0]
-// 	if (!ajout) {
-// 		tr.innerHTML = ""
-// 	}
-// 	for (i = 0; i < 3; i++) {
-// 		if (ajout) {
-// 			tr = document.createElement('tr')
-// 		}
-// 		const td = document.createElement("td")
-// 		if(i === 0) {
-// 			td.textContent = nomFamille
-// 		}
-// 		if(i === 1) {
-// 			td.textContent = prenom
-// 		}
-// 		if(i === 2) {
-// 			td.textContent = temps
-// 		}
-// 		tr.appendChild(td)
-// 		//tbody.appendChild(tr)
-// 	}
-// }
 
 function creerLigne(table, nomFamille, prenom, temps, supprimerPrecedent = false) {
 	const tbody = table.children[1]
@@ -90,13 +39,13 @@ function rechercher() {
 		}
 	}
 
-
 	onChange()
 	filtres.addEventListener("change", onChange)
 
 	const rechercher = document.getElementById('rechercher')
 	rechercher.addEventListener("click", () => {
 		table.children[1].innerHTML = ""
+		const annees = document.getElementById("annees")
 		if (filtres.value === "categorie") {
 			const divCategorie = document.getElementById("categorie")
 			const categorie = divCategorie.children[0].value
@@ -117,7 +66,7 @@ function rechercher() {
 					break
 				default: break
 			}
-			fetch(`/api/rechercher/categorie?id=${categorieId}&genre=${genre}`)
+			fetch(`/api/rechercher/categorie?id=${categorieId}&genre=${genre}&annee=${annees.value}`)
 				.then(res => res.json())
 				.then(data => {
 					for (let i = 0; i < data.length; i++) {
@@ -134,7 +83,7 @@ function rechercher() {
 			const dossard = Number(document.getElementById("dossard").value)
 			if(dossard !== 0){
 				filtres.value = "Ndossard"
-				fetch(`/api/rechercher/eleve?dossard=${dossard}`)
+				fetch(`/api/rechercher/eleve?dossard=${dossard}&annee=${annees.value}`)
 				.then(res => res.json())
 				.then(data => {
 					const nomFamille = data.nom_famille

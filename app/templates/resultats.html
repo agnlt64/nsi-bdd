@@ -4,28 +4,34 @@
 
     <section class="resultats" id="resultats">
         <h2>Veuillez sélectionner un filtre</h2>
-        <select name="filtres" id="filtres">
-            <option value="categorie">Catégorie</option>
-            <option value="Ndossard">Numéro de Dossard</option>
-        </select>
-        <div id="categorie" class="invisible">
-            <select>
-                <option value="minime">Minime</option>
-                <option value="cadet">Cadet</option>
-                <option value="junior">Junior</option>
-                <option value="benjamin">Benjamin</option>
+        <div class="filtres-container">
+            <select name="filtres" id="filtres">
+                <option value="categorie">Catégorie</option>
+                <option value="Ndossard">Numéro de Dossard</option>
             </select>
-
-            <select>
-                <option value="fille">Fille</option>
-                <option value="garcon">Garçon</option>
+            <div id="categorie" class="invisible">
+                <select>
+                    <option value="minime">Minime</option>
+                    <option value="cadet">Cadet</option>
+                    <option value="junior">Junior</option>
+                    <option value="benjamin">Benjamin</option>
+                </select>
+                <select>
+                    <option value="fille">Fille</option>
+                    <option value="garcon">Garçon</option>
+                </select>
+            </div>
+            <div class="invisible" id="recherche-dossards">
+                <input type="number" id="dossard" placeholder="Numéro de dossard" min="0">
+                <div class="erreur" id="erreur"></div>
+            </div>
+            <select id="annees">
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
             </select>
+            <button id="rechercher">Rechercher</button>
         </div>
-        <div class="invisible" id="recherche-dossards">
-            <input type="number" id="dossard" placeholder="Numéro de dossard" min="0">
-            <div class="erreur" id="erreur"></div>
-        </div>
-        <button id="rechercher">Rechercher</button>
         <table class="table-resultats invisible" id="table-resultat">
             <thead>
                 <tr>
@@ -44,4 +50,7 @@
             </tbody>
         </table>
     </section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/resultats.js') }}"></script>
 {% endblock %}

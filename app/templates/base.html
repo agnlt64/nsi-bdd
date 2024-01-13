@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,41 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
     <header>
         <div class="banner">
+            <img src="{{ url_for('static', filename='media/header.jpg') }}">
             <h1>Lycée Judat Bricot</h1>
         </div>
+
     </header>
     <nav id="sidebar" class="sidebar-open">
-        <button id="toggleMenu" onclick="toggleSidebar()"><img src="{{ url_for('static', filename='media/home.png') }}" id="maison" alt="Home"></button>
-        <div class="test1">
+        <button id="toggleMenu" onclick="toggleSidebar()"><img src="{{ url_for('static', filename='media/home.png') }}"
+                id="maison" alt="Home"></button>
+        <div class="navbar-menu">
             <ul>
                 <li class="slide"><a href="/">Accueil</a></li>
-                <li class="slide"><a href="/resultats">Résultats de Cross</a></li>
+                <li class="slide"><a href="/resultats">Résultats</a></li>
                 <li class="slide"><a href="/classement">Podium</a></li>
-                <li class="slide"><a href="/">Autres informations</a></li>
             </ul>
         </div>
         <ul id="sidebar-bottom">
-            <li><a href="#"><i class='bx bxl-instagram-alt' class='socialmedia'></i></a></li>
-            <li><a href="#"><i class='bx bxl-twitter' class='socialmedia'></i></a></li>
-            <li><a href="#"><i class='bx bxl-facebook-circle' class='socialmedia'></i></a></li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-instagram-alt socialmedia'></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-twitter socialmedia'></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-facebook-circle socialmedia'></i>
+                </a>
+            </li>
         </ul>
     </nav>
     <main>
@@ -35,7 +51,9 @@
     </main>
 
 </body>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 {% block scripts %}
+
 {% endblock %}
+
 </html>
