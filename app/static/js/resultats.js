@@ -1,5 +1,4 @@
 
-
 function creerLigne(table, nomFamille, prenom, temps, supprimerPrecedent = false) {
 	const tbody = table.children[1]
 	if (supprimerPrecedent) {
@@ -8,13 +7,13 @@ function creerLigne(table, nomFamille, prenom, temps, supprimerPrecedent = false
 	const tr = document.createElement('tr')
 	for (let i = 0; i < 3; i++) {
 		const td = document.createElement('td')
-		if(i === 0) {
+		if (i === 0) {
 			td.textContent = nomFamille
 		}
-		if(i === 1) {
+		if (i === 1) {
 			td.textContent = prenom
 		}
-		if(i === 2) {
+		if (i === 2) {
 			td.textContent = temps
 		}
 		tr.appendChild(td)
@@ -27,6 +26,7 @@ function rechercher() {
 	const filtres = document.getElementById("filtres")
 	const divCategorie = document.getElementById("categorie")
 	const rechercheDossards = document.getElementById("recherche-dossards")
+
 	const onChange = () => {
 		if (filtres.value === "categorie") {
 			table.classList.add("invisible")
@@ -77,25 +77,24 @@ function rechercher() {
 						creerLigne(table, nomFamille, prenom, temps)
 					}
 				})
-				filtres.value = "categorie"
+			filtres.value = "categorie"
 		}
 		else if (filtres.value === "Ndossard") {
 			const dossard = Number(document.getElementById("dossard").value)
-			if(dossard !== 0){
+			if (dossard !== 0) {
 				filtres.value = "Ndossard"
 				fetch(`/api/rechercher/eleve?dossard=${dossard}&annee=${annees.value}`)
-				.then(res => res.json())
-				.then(data => {
-					const nomFamille = data.nom_famille
-					const prenom = data.prenom
-					const temps = data.temps
-					table.classList.remove("invisible")
-					creerLigne(table, nomFamille, prenom, temps, true)
-				})	
+					.then(res => res.json())
+					.then(data => {
+						const nomFamille = data.nom_famille
+						const prenom = data.prenom
+						const temps = data.temps
+						table.classList.remove("invisible")
+						creerLigne(table, nomFamille, prenom, temps, true)
+					})
 			}
 		}
 	})
-
 }
 
 rechercher()

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +7,14 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
     <header>
         <div class="banner">
             <img src="{{ url_for('static', filename='media/header.jpg') }}">
             <h1>Lycée Judat Bricot</h1>
         </div>
-
     </header>
+
     <nav id="sidebar" class="sidebar-open">
         <button id="toggleMenu" onclick="toggleSidebar()"><img src="{{ url_for('static', filename='media/home.png') }}"
                 id="maison" alt="Home"></button>
@@ -45,6 +43,7 @@
             </li>
         </ul>
     </nav>
+
     <main>
         {% block content %}
         {% endblock %}
@@ -53,7 +52,5 @@
 </body>
 <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 {% block scripts %}
-
 {% endblock %}
-
 </html>

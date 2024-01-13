@@ -41,9 +41,8 @@ header {
 
 .banner h1 {
     position: absolute;
-
-    
 }
+
 .banner {
     height:100%;
     position:relative;
@@ -67,7 +66,6 @@ header {
     top: 25px;
     left: 0;
     border-radius: 0% 20% 20% 0%;
-
 }
 
 #toggleMenu img {
@@ -149,16 +147,13 @@ header {
     bottom: 0;
     display: flex;
     justify-content: space-evenly;
-    /*space-around space-between*/
     align-items: center;
 }
 
 #sidebar-bottom a {
     display: block;
     transition: 0.3s;
-
     margin-bottom: 70px;
-
 }
 
 #sidebar-bottom ul {
@@ -170,7 +165,6 @@ header {
 #sidebar-bottom li {
     display: inline-block;
     margin: 0 0px;
-    
 }
 
 main {
@@ -197,7 +191,6 @@ main {
     width: 50%;
     margin-top: 130px;
     padding: 20px;
-
 }
 
 input[type=text] {
@@ -207,25 +200,6 @@ input[type=text] {
 	box-sizing: border-box;
 	border: 2px solid #ccc;
 	border-radius: 4px;
-}
-
-thead {
-    text-align: center;
-    margin: 0 auto;
-
-
-}
-
-th, td {
-	text-align: left;
-	padding: 8px;
-	border-bottom: 1px solid #FEFEFF;
-}
-
-.mytable {
-    margin: 0 auto;
-    text-align: left; 
-    border-collapse: collapse;
 }
 
 .podium {
@@ -262,7 +236,6 @@ th, td {
     flex-direction: column;
     align-items: center;
     top:-10px;
-
 }
 
 .podium .position {
@@ -352,7 +325,7 @@ th, td {
     }
 }
 
-#rechercher, #bouton-podium{
+#rechercher, #bouton-podium {
     background-color: #4a5897;
     color: white;
     padding: 10px 15px;
@@ -432,18 +405,11 @@ select:focus {
     margin-top:4px;
 }
 
-.erreur {
-    color: #ff0000;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
 #categorie select {
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    /* margin-right: 10px; */
 }
 
 .filtres-container {
@@ -451,13 +417,8 @@ select:focus {
     gap: 8px;
     align-items: center;
     justify-content: center;
-
 }
 
 .resultats h2 {
     text-align: center;
 }
-
-
-
-
