@@ -96,6 +96,7 @@ function rechercher() {
 
 	const rechercher = document.getElementById('rechercher')
 	rechercher.addEventListener("click", () => {
+		table.children[1].innerHTML = ""
 		if (filtres.value === "categorie") {
 			const divCategorie = document.getElementById("categorie")
 			const categorie = divCategorie.children[0].value
@@ -141,11 +142,8 @@ function rechercher() {
 					const temps = data.temps
 					table.classList.remove("invisible")
 					creerLigne(table, nomFamille, prenom, temps, true)
-				
-				})
-				
+				})	
 			}
-			
 		}
 	})
 
