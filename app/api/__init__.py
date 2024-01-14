@@ -54,6 +54,7 @@ def search_categorie():
     id = request.args.get('id')
     genre = request.args.get('genre')
     id = id_from_genre(genre, int(id))
+    annee = request.args.get('annee')
     rows = ''
     if id is None:
         return {}
@@ -61,7 +62,7 @@ def search_categorie():
         requete_sql = f"""
 SELECT nom, prenom, temps FROM DOSSARD
 INNER JOIN ELEVE ON DOSSARD.id_dossard = ELEVE.id_eleve
-WHERE id_catégorie = {id}
+WHERE id_catégorie = {id} AND année = {annee}
 ORDER BY temps ASC
 """
         cursor.execute(requete_sql)
@@ -74,6 +75,7 @@ def search_podium():
     id = request.args.get('id')
     genre = request.args.get('genre')
     id = id_from_genre(genre, int(id))
+    annee = request.args.get('annee')
     rows = ''
     if id is None:
         return {}
@@ -81,7 +83,7 @@ def search_podium():
         requete_sql = f"""
 SELECT nom, prenom, temps FROM DOSSARD
 INNER JOIN ELEVE ON DOSSARD.id_dossard = ELEVE.id_eleve
-WHERE id_catégorie = {id}
+WHERE id_catégorie = {id} AND année = {annee}
 ORDER BY temps ASC
 """
         cursor.execute(requete_sql)
