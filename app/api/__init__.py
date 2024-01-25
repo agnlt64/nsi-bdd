@@ -7,6 +7,9 @@ conn = sqlite3.connect("app/api/cross.db", check_same_thread=False)
 cursor=conn.cursor()
 
 def id_from_genre(genre, id) :
+    """
+    on renvoie un nouvel ID en fonction du genre, voir la BDD pour plus de détails 
+    """
     nouveau_id = 0
     if genre == "garcon" : 
         if id == 1 : # Benjamins

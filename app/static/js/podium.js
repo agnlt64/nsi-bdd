@@ -25,7 +25,17 @@ function podium() {
         fetch(`/api/rechercher/podium?id=${categorieId}&genre=${genre}&annee=${annee}`)
             .then(res => res.json())
             .then(data => {
+                // si il n'y a pas de résultats on reset tout
+                if (data.length == 0) {
+                    document.getElementById("premier-prenom").innerHTML = ""
+                    document.getElementById("premier-temps").innerHTML = ""
+                    document.getElementById("deuxieme-prenom").innerHTML = ""
+                    document.getElementById("deuxieme-temps").innerHTML = ""
+                    document.getElementById("troisieme-prenom").innerHTML = ""
+                    document.getElementById("troisieme-temps").innerHTML = ""
+                }
                 for (let i = 0; i < data.length; i++) {
+                    // on ajoute les données au podium
                     if (i == 0) {
                         document.getElementById("premier-prenom").textContent = data[i][1] + ' ' + data[i][0].toUpperCase()
                         document.getElementById("premier-temps").textContent = data[i][2]
